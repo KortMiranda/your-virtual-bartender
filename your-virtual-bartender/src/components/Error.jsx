@@ -1,11 +1,11 @@
 import React from 'react';
 
-function Results(props) {
+function Error(props) {
     return (
         <div>
-            Results
+            
         </div>
     );
 }
 
-export default Results;
+export default Error;

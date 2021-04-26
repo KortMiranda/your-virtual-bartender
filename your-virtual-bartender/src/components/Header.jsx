@@ -1,12 +1,12 @@
 import React from 'react';
-import RandomDrink from './RandomDrink'
-import SearchForm from './SearchForm'
+import { Link } from 'react-router-dom'
+
 
 function Header(props) {
     return (
         <div>
-            <RandomDrink />
-            <SearchForm />
+            <Link to="/recommendation"><button>Surprise Me!</button></Link>
+            <Link to="/drink-search"><button>Something more specific...</button></Link>
         </div>
     );
 }
