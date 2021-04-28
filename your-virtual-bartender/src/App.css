@@ -2,37 +2,86 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+header-banner{
+  width: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+img {
+  width: 100%;
+  position: absolute;
+  z-index: 0;
+  top:0;
+  left: 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.talk-bubble {
+	margin: 40px;
+  display: inline-block;
+  position: relative;
+  top: 2rem;
+  left: 6rem;
+	width: 40%;
+	height: 60%;
+	background-color: lightyellow;
 }
 
-.App-link {
-  color: #61dafb;
+.border{
+  border: 2px solid black;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+.round {
+  border-radius: 30px;
+}
+
+.tri-right.border.right-in:before{
+  content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+  left: auto;
+	right: -40px;
+  top: 30px;
+	bottom: auto;
+	border: 20px solid;
+	border-color: #666 transparent transparent transparent;
+}
+
+.tri-right.right-in:after {
+  content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+  left: auto;
+	right: -20px;
+  top: 38px;
+	bottom: auto;
+	border: 12px solid;
+	border-color: lightyellow transparent transparent lightyellow;
+}
+
+
+.talk-text{
+  font-size: 2em;
+  padding: 1em;
+  line-height: 1.5em;
+}
+
+.buttons {
+  position: relative;
+  z-index: 2;
+  top: 200px;
+}
+
+.drink-image{
+  width: 275px;
+}
+
+@media only screen and (max-width: 900px) {
+  .talk-bubble {
+    margin: 30px;
+    top: -20px;
+    width: 300px;
+    height: 125px;
+    font-size: 12px;
   }
 }
