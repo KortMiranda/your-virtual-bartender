@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
+import Header from './Header'
 
 
 function RandomDrink() {
@@ -52,6 +53,7 @@ function RandomDrink() {
                 console.log(error)
             }
             setLoading(false)
+            return this
         }
         getRandomDrink()
     }, [])
@@ -74,10 +76,12 @@ function RandomDrink() {
     return (
         <section className="cocktail-section">
              <Link to="/"><button>Back to home</button></Link>
-             <h2 className="drink-title">{name}</h2>
              <div className="drink">
+                 <div className="drink-img">
                  <img src={image} alt={name} />
+                 </div>
                  <div className="drink-recipe">
+             <h2 className="drink-title">{name}</h2>
                     <p>{category}</p>
                     <p>{info}</p>
                     <p>{glass}</p>
@@ -90,9 +94,11 @@ function RandomDrink() {
                     <p>instructions : {instructions}</p>
                  </div>
              </div>
+             <button onClick={() => window.location.reload()}>Another Suggestion</button>
         </section>   
     );
     }
+
 }
 
 export default RandomDrink;

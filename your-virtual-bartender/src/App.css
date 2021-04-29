@@ -6,7 +6,7 @@ header-banner{
   width: 100%;
 }
 
-img {
+.header-banner img {
   width: 100%;
   position: absolute;
   z-index: 0;
@@ -72,10 +72,6 @@ img {
   top: 200px;
 }
 
-.drink img{
-  width: 275px;
-}
-
 @media only screen and (max-width: 900px) {
   .talk-bubble {
     margin: 30px;
@@ -84,4 +80,14 @@ img {
     height: 125px;
     font-size: 12px;
   }
+}
+
+.drink {
+  display: flex;
+  margin: 5em;
+  padding: 20px;
+}
+
+.drink img{
+  width: 275px;
 }
