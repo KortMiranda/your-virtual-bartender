@@ -3,7 +3,8 @@ import React, {useEffect, useState} from 'react'
 import './App.css';
 import Header from './components/Header'
 import RandomDrink from './components/RandomDrink'
-import SearchResult from './components/SearchResult'
+import DrinkResult from './components/DrinkResult'
+import CocktailList from './components/CocktailList'
 import SearchForm from './components/SearchForm'
 import Error from './pages/Error'
 import { Route } from 'react-router-dom'
@@ -19,8 +20,8 @@ function App() {
   
   function getDrink(searchTerm) {
     const url = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchTerm}`
+    // const url = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=martini`
     fetch(url)
-    
     .then(response => response.json())
     .then(response => {
       setDrink(response.drinks)
@@ -33,6 +34,12 @@ function App() {
             strDrinkThumb,
             strAlcoholic,
             strGlass,
+            strInstructions,
+            // strIngredient1,
+            // strIngredient2,
+            // strIngredient3,
+            // strIngredient4,
+            // strIngredient5,
           } = item;
           return {
             id: idDrink,
@@ -40,38 +47,32 @@ function App() {
             image: strDrinkThumb,
             info: strAlcoholic,
             glass: strGlass,
+            instructions: strInstructions,
           };
         });
-        setDrink(newDrink);
+        setDrink(newDrink[0])
+        console.log(drink.id)
       } else {
         setDrink([]);
       }
-      console.log(response.drinks)
+      // console.log(response.drinks)
     })
     .catch(console.error)
   }
 
-  function handleChange(event) {
-    setSearchTerm(event.target.value)
-  }
-  function handleSubmit(event) {
-    event.preventDefault()
-    getDrink(searchTerm)
-  }
-  
-
   return (
 
     <div className="App">
-      <SearchForm handleChange={handleChange}
-                handleSubmit={handleSubmit}
+      <SearchForm 
+                getDrink={getDrink}
+                setSearchTerm={setSearchTerm}
                 searchTerm={searchTerm}/>
+      <DrinkResult drink={drink}/>
+      
       <Route exact path = "/" component={Header} />
       <Route exact path = "/recommendation/" component={RandomDrink}/>
       <Route exact path = "/drink-search" component={SearchForm} />
-      <Route exact path = "/drink-result/:name">
-        <SearchResult drink={drink}/>
-      </Route>
+      <Route exact path = "/drink-result/"></Route>
       <Route exact path = "/drink-result-error" component={Error} />
     </div>
   );
