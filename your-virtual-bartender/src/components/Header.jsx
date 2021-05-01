@@ -11,11 +11,11 @@ function Header(props) {
         <div>
             <div className="header-banner">
             <img src={img} alt="drink at bar"/>
-            <div className="talk-bubble tri-right round right-in">
+            {/* <div className="talk-bubble tri-right round right-in">
                 <div className="talk-text">
                     <h2>What are you having tonight?</h2>
                 </div>
-            </div>
+            </div> */}
             </div>
 
             <div className="buttons">

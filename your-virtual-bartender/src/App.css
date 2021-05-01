@@ -81,13 +81,22 @@ header-banner{
     font-size: 12px;
   }
 }
-
+/*
+=======
+Drink Results and Recommendation 
+=======
+*/
 .drink {
   display: flex;
   margin: 5em;
-  padding: 20px;
+  
+}
+
+.drink-recipe {
+  padding-left: 75px;
 }
 
 .drink img{
   width: 275px;
 }
+

@@ -53,7 +53,6 @@ function RandomDrink() {
                 console.log(error)
             }
             setLoading(false)
-            return this
         }
         getRandomDrink()
     }, [])
