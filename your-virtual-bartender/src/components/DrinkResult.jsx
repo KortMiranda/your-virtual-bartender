@@ -1,21 +1,17 @@
 import React, {useState, useEffect} from 'react';
-import SearchForm from './SearchForm'
 import { Link } from 'react-router-dom'
-import { DrinkContext } from './DrinkContext'
+
 
 function DrinkResult({match} ) {
-    // const { searchTerm } = useParams()
     const [loading, setLoading] = useState(false);
-    const [searchTerm, setSearchTerm] = useState()
   const [drink, setDrink] = useState(null)
 
   useEffect(() => {
       setLoading(true)
-    async function getDrink(searchTerm) {
+    async function getDrink() {
         try {
             const response = await fetch(
                 `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${match.params.searchterm}`
-                //  `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=martini`
             )
             const data = await response.json()
             if (data.drinks) {
@@ -77,10 +73,17 @@ function DrinkResult({match} ) {
         info,
         glass,
         instructions,
-        ingredients
     } = drink
 
     return (
+        <div>
+        <div className="header-banner">
+        <div className="talk-bubble tri-right round right-in">
+                <div className="talk-text">
+                    <h2>Here's what I think you would like...</h2>
+                </div>
+            </div>
+        </div>
         
         <section className="cocktail-section">
              <div className="drink">
@@ -102,9 +105,10 @@ function DrinkResult({match} ) {
                  </div>
              </div>
              
-             <Link to="/drink-search"><button>Back to Search</button></Link>
+             <Link to="/drink-search"><button>New Search</button></Link>
             
-        </section>   
+        </section>  
+        </div> 
     );
     
                     }

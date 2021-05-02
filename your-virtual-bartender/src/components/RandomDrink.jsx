@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
-import Header from './Header'
-
-
+import Header from '../components/Header'
 function RandomDrink() {
     const [loading, setLoading] = useState(false);
     const [randomDrink, setRandomDrink] = useState(null)
@@ -73,6 +71,16 @@ function RandomDrink() {
         } = randomDrink
     
     return (
+        <div>
+        
+        <div className="header-banner">
+        <div className="talk-bubble tri-right round right-in">
+                <div className="talk-text">
+                    <h2>I would recommend the...</h2>
+                </div>
+            </div>
+        </div>
+        
         <section className="cocktail-section">
              <Link to="/"><button>Back to home</button></Link>
              <div className="drink">
@@ -94,7 +102,8 @@ function RandomDrink() {
                  </div>
              </div>
              <button onClick={() => window.location.reload()}>Another Suggestion</button>
-        </section>   
+        </section>  
+        </div> 
     );
     }
 

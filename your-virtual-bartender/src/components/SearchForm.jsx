@@ -1,25 +1,27 @@
-import React, { useState, useEffect, useContext } from 'react';
-import DrinkResult from './DrinkResult'
-// import {DrinkContext} from './DrinkContext'
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom'
-
-    
 
 function SearchForm() {
     const [searchTerm, setSearchTerm] = useState()
 
         function handleChange(event) {
         setSearchTerm(event.target.value)
-        console.log(event.target.value)
+        
       }
       function handleSubmit(event) {
         event.preventDefault()
         setSearchTerm(searchTerm)
-        console.log(searchTerm)
       }
 
     return (
         <div>
+            <div className="header-banner">
+            <div className="talk-bubble tri-right round right-in">
+                <div className="talk-text">
+                    <h2>What are you feeling?</h2>
+                </div>
+            </div>
+            </div>
             <Link to='/'><button>Back to main screen</button></Link>
             <h2>Search Cocktail Recipe</h2>
             <form className="form search-form" onSubmit={handleSubmit}>

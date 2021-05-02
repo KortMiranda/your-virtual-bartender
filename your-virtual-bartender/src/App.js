@@ -1,18 +1,19 @@
-import React, {useEffect, useState, useContext} from 'react'
-// import Bootstrap from 'bootstrap/dist/css/bootstrap.css'
+import React, {useState} from 'react'
 import './App.css';
+import Home from './pages/Home'
 import Header from './components/Header'
 import RandomDrink from './components/RandomDrink'
 import DrinkResult from './components/DrinkResult'
 import SearchForm from './components/SearchForm'
 import { Route } from 'react-router-dom'
-import { DrinkContext } from './components/DrinkContext'
+
 
 function App() { 
-  const [searchTerm, setSearchTerm] = useState()
+  const [searchTerm] = useState()
   return (
     <div className="App">  
-      <Route exact path = "/" component={Header} />
+    <Header />
+      <Route exact path = "/" component={Home} />
       <Route exact path = "/recommendation/" component={RandomDrink}/>
       <Route exact path = "/drink-search/" 
              render={() => <SearchForm 
