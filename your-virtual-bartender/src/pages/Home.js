@@ -1,11 +1,11 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import {Link} from 'react-router-dom'
-import Header from '../components/Header'
-import { TextContext } from '../components/TextContext'
+
+import Button from 'react-bootstrap/Button'
+
+
 
 function Home() {
-    
-
     return (
         <div>
            <div className="talk-bubble tri-right round right-in">
@@ -15,8 +15,8 @@ function Home() {
             </div>
             
             <div className="home-buttons">
-            <Link to="/recommendation"><button>Surprise Me!</button></Link>
-            <Link to="/drink-search"><button>Something more specific...</button></Link>
+            <Link to="/recommendation"><Button variant="outline-dark mx-4" size="lg">Surprise Me!</Button></Link>
+            <Link to="/drink-search"><Button variant="outline-dark mx-4" size="lg">Something more specific...</Button></Link>
             </div>
             
         </div>

@@ -6,7 +6,7 @@ import RandomDrink from './components/RandomDrink'
 import DrinkResult from './components/DrinkResult'
 import SearchForm from './components/SearchForm'
 import { Route } from 'react-router-dom'
-
+import Bootstrap from 'bootstrap/dist/css/bootstrap.css'
 
 function App() { 
   const [searchTerm] = useState()

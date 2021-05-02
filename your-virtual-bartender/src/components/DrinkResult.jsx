@@ -96,12 +96,13 @@ function DrinkResult({match} ) {
                     <p>{info}</p>
                     <p>{glass}</p>
                     <p>
-                        ingredients : {" "}
+                        <b>Ingredients : {" "}</b>
                         {drink.ingredients.map((item, index) => {
-                            return item ? <span key={index}>{item}</span> : null;
+                            return item ? <span key={index}><li>{item}</li></span> : null;
                         })}
                     </p>
-                    <p>instructions : {instructions}</p>
+                    <p><b>Instructions : </b> </p>
+                    <p>{instructions}</p>
                  </div>
              </div>
              

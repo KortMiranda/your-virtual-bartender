@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom'
+import Form from 'react-bootstrap/Form'
+import FormControl from 'react-bootstrap/FormControl';
+import FormLabel from 'react-bootstrap/FormLabel'
+import Container from 'react-bootstrap/Container'
+import Button from 'react-bootstrap/Button'
 
 function SearchForm() {
     const [searchTerm, setSearchTerm] = useState()
@@ -22,12 +27,14 @@ function SearchForm() {
                 </div>
             </div>
             </div>
+           
+            
+            <Container className="mt-2">
             <Link to='/'><button>Back to main screen</button></Link>
             <h2>Search Cocktail Recipe</h2>
-            <form className="form search-form" onSubmit={handleSubmit}>
-                <div className="form-control">
-                <label htmlFor="by-name">By Name: </label>
-                <input 
+            <Form inline  onSubmit={handleSubmit}>  
+                <FormLabel>By Name: </FormLabel>
+                <FormControl 
                     type="text" 
                     name="name"
                     id="name"
@@ -36,13 +43,11 @@ function SearchForm() {
                     onChange={handleChange}
                     input={searchTerm}
                      />
-                     
                      <Link to={`drink-result/${searchTerm}`}><button type='submit'>Submit
                      </button></Link>
-                     
-                     
-                </div>
-            </form>
+            </Form>
+            </Container>
+            
                     
             
         </div>

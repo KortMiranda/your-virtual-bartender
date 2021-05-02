@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
-import Header from '../components/Header'
 function RandomDrink() {
     const [loading, setLoading] = useState(false);
     const [randomDrink, setRandomDrink] = useState(null)
@@ -82,7 +81,9 @@ function RandomDrink() {
         </div>
         
         <section className="cocktail-section">
-             <Link to="/"><button>Back to home</button></Link>
+
+             <Link to="/"><button className="home-button">Back to home</button></Link>
+ 
              <div className="drink">
                  <div className="drink-img">
                  <img src={image} alt={name} />
@@ -93,12 +94,13 @@ function RandomDrink() {
                     <p>{info}</p>
                     <p>{glass}</p>
                     <p>
-                        ingredients : {" "}
+                        <b>Ingredients : {" "}</b>
                         {ingredients.map((item, index) => {
-                            return item ? <span key={index}>{item}</span> : null;
+                            return item ? <span key={index}><li>{item}</li></span> : null;
                         })}
                     </p>
-                    <p>instructions : {instructions}</p>
+                    <p><b>Instructions : </b></p>
+                    <p>{instructions}</p>
                  </div>
              </div>
              <button onClick={() => window.location.reload()}>Another Suggestion</button>
