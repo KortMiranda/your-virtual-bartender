@@ -1,18 +1,20 @@
 import React, {useState, useEffect} from 'react';
+import SearchForm from './SearchForm'
 import { Link } from 'react-router-dom'
+import { DrinkContext } from './DrinkContext'
 
-function DrinkResult(searchTerm) {
+function DrinkResult({match} ) {
     // const { searchTerm } = useParams()
     const [loading, setLoading] = useState(false);
-    // const [searchTerm, setSearchTerm] = useState()
+    const [searchTerm, setSearchTerm] = useState()
   const [drink, setDrink] = useState(null)
 
   useEffect(() => {
       setLoading(true)
-    async function getDrink() {
+    async function getDrink(searchTerm) {
         try {
             const response = await fetch(
-                `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchTerm}`
+                `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${match.params.searchterm}`
                 //  `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=martini`
             )
             const data = await response.json()
@@ -53,6 +55,7 @@ function DrinkResult(searchTerm) {
         } catch (error) {
             console.log(error)
         }
+        
         setLoading(false)
     }
     getDrink()     
@@ -76,8 +79,9 @@ function DrinkResult(searchTerm) {
         instructions,
         ingredients
     } = drink
-  
+
     return (
+        
         <section className="cocktail-section">
              <div className="drink">
                  <div className="drink-img">
@@ -88,22 +92,22 @@ function DrinkResult(searchTerm) {
                     <p>{category}</p>
                     <p>{info}</p>
                     <p>{glass}</p>
-                    {/* <p>
+                    <p>
                         ingredients : {" "}
                         {drink.ingredients.map((item, index) => {
                             return item ? <span key={index}>{item}</span> : null;
                         })}
-                    </p> */}
+                    </p>
                     <p>instructions : {instructions}</p>
                  </div>
              </div>
              
              <Link to="/drink-search"><button>Back to Search</button></Link>
+            
         </section>   
-        
     );
-    }
     
-}
+                    }
+    }
 
 export default DrinkResult;
