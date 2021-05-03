@@ -7,17 +7,20 @@ import Container from 'react-bootstrap/Container'
 import Button from 'react-bootstrap/Button'
 
 function SearchForm() {
-    const [searchTerm, setSearchTerm] = useState()
+    const [searchName, setSearchName] = useState()
+    const [searchIng, setSearchIng] = useState()
 
         function handleChange(event) {
-        setSearchTerm(event.target.value)
+        setSearchName(event.target.value)
+        setSearchIng(event.target.value)
         
-      }
-      function handleSubmit(event) {
+    }
+    function handleSubmit(event) {
         event.preventDefault()
-        setSearchTerm(searchTerm)
-      }
-
+        setSearchName(searchName)
+        setSearchIng(searchIng)
+    }
+    
     return (
         <div>
             <div className="header-banner">
@@ -27,29 +30,39 @@ function SearchForm() {
                 </div>
             </div>
             </div>
-           
-            
-            <Container className="mt-2">
-            <Link to='/'><button>Back to main screen</button></Link>
+            <Container className="search-form">
             <h2>Search Cocktail Recipe</h2>
-            <Form inline  onSubmit={handleSubmit}>  
+            
+            <Form inline className="inner-form" onSubmit={handleSubmit}>  
                 <FormLabel>By Name: </FormLabel>
-                <FormControl 
+                <FormControl
                     type="text" 
                     name="name"
                     id="name"
                     required
                     placeholder="Drink Name"
                     onChange={handleChange}
-                    input={searchTerm}
+                    input={searchName}
                      />
-                     <Link to={`drink-result/${searchTerm}`}><button type='submit'>Submit
-                     </button></Link>
+                     <Link to={`drink-result-name/${searchName}`}><Button variant="outline-dark ml-2 "type='submit'>Search
+                     </Button></Link>
             </Form>
-            </Container>
+            <Form inline className="inner-form" onSubmit={handleSubmit}>  
+                <FormLabel>By Ingredient: </FormLabel>
+                <FormControl
+                    type="text" 
+                    ing="ing"
+                    id="ing"
+                    placeholder="Ingredient Name"
+                    onChange={handleChange}
+                    input={searchIng}
+                     />
+                     <Link to={`drink-result-ing/${searchIng}`}><Button variant="outline-dark ml-2 "type='submit'>Search
+                     </Button></Link>
+            </Form>
             
-                    
-            
+                     <Link to="/"><Button variant="outline-dark ml-2" className="home-button">Back to home</Button></Link>
+            </Container>    
         </div>
     );
 }

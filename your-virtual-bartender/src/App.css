@@ -13,19 +13,8 @@ Global Styles
 body {
   background: #F8F3D2;
 }
-/* button {
-  background: #9B7E46;
-  border: solid 4px black;
-  border-radius: 5px;
-  padding: 15px;
-  cursor: pointer;
- 
-}
 
-button:hover {
-  background:#b39b6a;
-  color: #F8F3D2;
-} */
+
 
 /*
 =======
@@ -127,7 +116,7 @@ Home Page
 */
 
 .home-buttons {
-  margin-top: 200px;
+  margin-top: 15%;
 }
 
 
@@ -137,15 +126,26 @@ Search Form
 =======
 */
 
-.search-form {
-  margin-top: 100px;
+.search-form{
+  margin-top: 12%;
 }
+
+.inner-form {
+  margin-top: 15px;
+  margin-left: 25%;
+  margin-bottom: 20px;
+}
+
 
 /*
 =======
 Drink Results and Recommendation 
 =======
 */
+
+.cocktail-section {
+  margin-top: 13%;
+}
 
 .drink {
   display: flex;
@@ -160,5 +160,10 @@ Drink Results and Recommendation
 
 .drink img{
   width: 275px;
+}
+
+.flex-buttons {
+  display: flex;
+  flex-shrink: 3;
 }
 

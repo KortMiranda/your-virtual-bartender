@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
+import Button from 'react-bootstrap/Button'
+
 function RandomDrink() {
     const [loading, setLoading] = useState(false);
     const [randomDrink, setRandomDrink] = useState(null)
@@ -82,7 +84,6 @@ function RandomDrink() {
         
         <section className="cocktail-section">
 
-             <Link to="/"><button className="home-button">Back to home</button></Link>
  
              <div className="drink">
                  <div className="drink-img">
@@ -92,7 +93,7 @@ function RandomDrink() {
              <h2 className="drink-title">{name}</h2>
                     <p>{category}</p>
                     <p>{info}</p>
-                    <p>{glass}</p>
+                    <p>You'll need a {glass}</p>
                     <p>
                         <b>Ingredients : {" "}</b>
                         {ingredients.map((item, index) => {
@@ -101,9 +102,12 @@ function RandomDrink() {
                     </p>
                     <p><b>Instructions : </b></p>
                     <p>{instructions}</p>
+            <div className="flex-buttons">
+             <Button variant="outline-dark"onClick={() => window.location.reload()}>Another Suggestion</Button>
+            <Link to="/"><Button variant="outline-dark ml-2" className="home-button">Back to home</Button></Link>
+            </div>
                  </div>
              </div>
-             <button onClick={() => window.location.reload()}>Another Suggestion</button>
         </section>  
         </div> 
     );

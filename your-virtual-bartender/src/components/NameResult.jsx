@@ -1,17 +1,18 @@
 import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom'
+import Button from 'react-bootstrap/Button'
 
 
-function DrinkResult({match} ) {
+function NameResult({match} ) {
     const [loading, setLoading] = useState(false);
-  const [drink, setDrink] = useState(null)
+  const [drinkName, setDrinkName] = useState(null)
 
   useEffect(() => {
       setLoading(true)
-    async function getDrink() {
+    async function getDrinkName() {
         try {
             const response = await fetch(
-                `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${match.params.searchterm}`
+                `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${match.params.searchname}`
             )
             const data = await response.json()
             if (data.drinks) {
@@ -35,7 +36,7 @@ function DrinkResult({match} ) {
                     strIngredient4,
                     strIngredient5,
                 ]
-                const newDrink = {
+                const newDrinkName = {
                     name,
                     image,
                     info,
@@ -44,9 +45,9 @@ function DrinkResult({match} ) {
                     instructions,
                     ingredients,
                 }
-                setDrink(newDrink)
+                setDrinkName(newDrinkName)
             } else {
-                setDrink(null)
+                setDrinkName(null)
             }
         } catch (error) {
             console.log(error)
@@ -54,12 +55,12 @@ function DrinkResult({match} ) {
         
         setLoading(false)
     }
-    getDrink()     
+    getDrinkName()     
   }, [])
   if (loading) {
     return <h2 className="section-title">Making that drink for you...</h2>
   }
-  if(!drink) {
+  if(!drinkName) {
     return (
     <div>
     <h2 className="section-title">no cocktail to display</h2>
@@ -73,7 +74,7 @@ function DrinkResult({match} ) {
         info,
         glass,
         instructions,
-    } = drink
+    } = drinkName
 
     return (
         <div>
@@ -94,25 +95,26 @@ function DrinkResult({match} ) {
              <h2 className="drink-title">{name}</h2>
                     <p>{category}</p>
                     <p>{info}</p>
-                    <p>{glass}</p>
+                    <p>You'll need a {glass}</p>
                     <p>
                         <b>Ingredients : {" "}</b>
-                        {drink.ingredients.map((item, index) => {
+                        {drinkName.ingredients.map((item, index) => {
                             return item ? <span key={index}><li>{item}</li></span> : null;
                         })}
                     </p>
                     <p><b>Instructions : </b> </p>
                     <p>{instructions}</p>
+             <Link to="/drink-search"><Button variant="outline-dark">New Search</Button></Link>
+             <Link to="/"><Button variant="outline-dark ml-2">Back Home</Button></Link>
                  </div>
              </div>
              
-             <Link to="/drink-search"><button>New Search</button></Link>
             
         </section>  
         </div> 
     );
     
-                    }
     }
+}
 
-export default DrinkResult;
+export default NameResult;
