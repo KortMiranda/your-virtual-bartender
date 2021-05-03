@@ -53,7 +53,7 @@ function IngRecipe({drinkId}) {
             setLoading(false)
         }
         getIngRecipe()
-    }, [])
+    }, [drinkId])
     if (loading) {
         return <h2 className="section-title">Making that drink for you...</h2>
     }

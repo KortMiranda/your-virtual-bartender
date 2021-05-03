@@ -56,7 +56,7 @@ function NameResult({match} ) {
         setLoading(false)
     }
     getDrinkName()     
-  }, [])
+  }, [match.params.searchname])
   if (loading) {
     return <h2 className="section-title">Making that drink for you...</h2>
   }

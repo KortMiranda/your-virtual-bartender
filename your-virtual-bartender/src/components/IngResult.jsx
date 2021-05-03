@@ -47,7 +47,7 @@ function IngResult({match} ) {
         setLoading(false)
     }
     getDrinkIng()    
-  }, [])
+  }, [match.params.searchIng])
   if (loading) {
     return <h2 className="section-title">Making that drink for you...</h2>
   }
