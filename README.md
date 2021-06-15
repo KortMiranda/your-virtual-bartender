@@ -1,5 +1,9 @@
 # Your Virtual Bartender
 
+## Deployed Site
+
+* https://yourvirtualbartender.surge.sh/
+
 ## Description 
 
 My app is called Your Virtual Bartender. It's a recipe searching app using the TheCocktailDB API that helps people discover new cocktail recipes or if they are looking for a specific recipe. One button on the landing page says "something more specific" if the user is looking for a specific drink recipe. Once clicked, the user will be directed to a form to search for a drink either by name or a specific ingredient. Another button on the landing page says "surprise me" which will generate a random cocktail recipe.
@@ -34,6 +38,3 @@ I would also like to eventually add more fields to the search form where you can
 * https://github.com/satishf889/react-cocktaildb-project
 * https://www.nicepng.com/ourpic/u2q8w7o0u2w7y3r5_cocktail-vector-svg-martini-glass-silhouette-png/
 
-## Deployed Site
-
-* https://yourvirtualbartender.surge.sh/
