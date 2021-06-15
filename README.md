@@ -17,7 +17,7 @@ My app is called Your Virtual Bartender. It's a recipe searching app using the T
 
 1. Fork and clone this repository into your terminal
 2. Change into the new directory 
-3. Install dependencies (`<npm i>` or `<npm instal>`)
+3. Install dependencies (`<npm i>` or `<npm install>`)
 4. Run app into browser (`<npm start>`)
 
 ## Contribution Guidelines
@@ -36,4 +36,4 @@ I would also like to eventually add more fields to the search form where you can
 
 ## Deployed Site
 
-* http://yourvirtualbartendr.surge.sh/
+* https://yourvirtualbartender.surge.sh/
